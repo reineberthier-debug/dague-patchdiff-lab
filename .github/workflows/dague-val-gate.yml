@@ -1,0 +1,10 @@
+name: dague-val-gate
+on:
+  pull_request:
+jobs:
+  dague-val-gate:
+    name: dague-val-gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: legit
+        run: echo "LEGIT-MAIN-WORKFLOW-DAGUE-VAL-GATE"
