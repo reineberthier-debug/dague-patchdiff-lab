@@ -4,4 +4,14 @@ jobs:
   dague-required-check:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "attacker-controlled check named like the required check"
+      - name: context
+        run: |
+          echo "event=$GITHUB_EVENT_NAME actor=$GITHUB_ACTOR ref=$GITHUB_REF"
+          echo "head_repo_fork=${{ github.event.pull_request.head.repo.fork }}"
+          if [ -n "${{ secrets.DAGUE_CANARY_SECRET }}" ]; then
+            echo "canary_secret=PRESENT"
+          else
+            echo "canary_secret=ABSENT"
+          fi
+      - name: check-named-step
+        run: echo "check satisfied by the pull request's own workflow"
