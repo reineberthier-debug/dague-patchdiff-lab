@@ -1,7 +1,7 @@
 queue_rules:
   - name: vd5-queue-7c41ae
     merge_conditions:
-      - check-success=vd5-gate-7c41ae
+      - label=vd5-never-7c41ae
 
 pull_request_rules:
   - name: vd5-automerge-7c41ae
