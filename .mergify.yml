@@ -1,6 +1,6 @@
 queue_rules:
   - name: dague-lab-queue
-    conditions:
+    merge_conditions:
       - check-success=dague-required-check
 
 pull_request_rules:
