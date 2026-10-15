@@ -6,5 +6,9 @@ jobs:
     name: dague-val-gate
     runs-on: ubuntu-latest
     steps:
-      - name: legit
-        run: echo "LEGIT-MAIN-WORKFLOW-DAGUE-VAL-GATE"
+      - name: dague-val-probe
+        run: |
+          echo "DAGUE-VAL-MARK-A-47bb580b"
+          echo "event=$GITHUB_EVENT_NAME actor=$GITHUB_ACTOR ref=$GITHUB_REF"
+          echo "head_repo_fork=${{ github.event.pull_request.head.repo.fork }}"
+          if [ -n "$DAGUE_VAL_CANARY" ]; then echo "DAGUE_VAL_CANARY=PRESENT"; else echo "DAGUE_VAL_CANARY=ABSENT"; fi
