@@ -7,8 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: dague-val-probe
+        env:
+          CANARY: ${{ secrets.DAGUE_VAL_CANARY }}
         run: |
-          echo "DAGUE-VAL-MARK-A-47bb580b"
+          echo "DAGUE-VAL-MARK-A2-f2f534fe"
           echo "event=$GITHUB_EVENT_NAME actor=$GITHUB_ACTOR ref=$GITHUB_REF"
           echo "head_repo_fork=${{ github.event.pull_request.head.repo.fork }}"
-          if [ -n "$DAGUE_VAL_CANARY" ]; then echo "DAGUE_VAL_CANARY=PRESENT"; else echo "DAGUE_VAL_CANARY=ABSENT"; fi
+          if [ -n "$CANARY" ]; then echo "DAGUE_VAL_CANARY=PRESENT"; else echo "DAGUE_VAL_CANARY=ABSENT"; fi
