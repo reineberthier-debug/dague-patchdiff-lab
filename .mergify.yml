@@ -1,13 +1,18 @@
 queue_rules:
-  - name: dague-val-queue
+  - name: dague-lab-queue
     conditions:
-      - check-success=dague-val-gate
+      - check-success=dague-required-check
 
 pull_request_rules:
-  - name: dague-val-queue-rule
+  - name: dague-lab-comment
     conditions:
       - base = main
-      - title~=^dague-val
+    actions:
+      comment:
+        message: "dague-lab: rule matched"
+  - name: dague-lab-automerge
+    conditions:
+      - base = main
     actions:
       queue:
-        name: dague-val-queue
+        name: dague-lab-queue
