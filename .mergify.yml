@@ -1,0 +1,18 @@
+queue_rules:
+  - name: dague-lab-queue
+    conditions:
+      - check-success=dague-required-check
+
+pull_request_rules:
+  - name: dague-lab-comment
+    conditions:
+      - base = main
+    actions:
+      comment:
+        message: "dague-lab: rule matched"
+  - name: dague-lab-automerge
+    conditions:
+      - base = main
+    actions:
+      queue:
+        name: dague-lab-queue
