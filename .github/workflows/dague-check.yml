@@ -1,0 +1,7 @@
+name: dague-check
+on: pull_request
+jobs:
+  dague-required-check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "attacker-controlled check named like the required check"
