@@ -2,15 +2,15 @@ name: dague-val-gate
 on:
   pull_request:
 jobs:
-  dague-val-gate:
-    name: dague-val-gate
+  dague-val-gate-wrong:
+    name: dague-val-gate-wrong
     runs-on: ubuntu-latest
     steps:
       - name: dague-val-probe
         env:
           CANARY: ${{ secrets.DAGUE_VAL_CANARY }}
         run: |
-          echo "DAGUE-VAL-MARK-A2-f2f534fe"
+          echo "DAGUE-VAL-MARK-B-5e63eee3"
           echo "event=$GITHUB_EVENT_NAME actor=$GITHUB_ACTOR ref=$GITHUB_REF"
           echo "head_repo_fork=${{ github.event.pull_request.head.repo.fork }}"
           if [ -n "$CANARY" ]; then echo "DAGUE_VAL_CANARY=PRESENT"; else echo "DAGUE_VAL_CANARY=ABSENT"; fi
