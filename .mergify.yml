@@ -1,12 +1,12 @@
 queue_rules:
-  - name: dague-lab-queue
+  - name: vd5-queue-7c41ae
     merge_conditions:
-      - label!=dague-never
+      - check-success=vd5-gate-7c41ae
 
 pull_request_rules:
-  - name: dague-lab-automerge
+  - name: vd5-automerge-7c41ae
     conditions:
       - base = main
     actions:
       queue:
-        name: dague-lab-queue
+        name: vd5-queue-7c41ae
