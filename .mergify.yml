@@ -1,12 +1,13 @@
 queue_rules:
   - name: dague-lab-queue
+    queue_conditions:
+      - label = dague-queue-only
     merge_conditions:
-      - check-success=ci
+      - label != dague-never-merge-xyz
 
 pull_request_rules:
   - name: dague-lab-automerge
     conditions:
-      - base = main
       - label = dague-never-merge
     actions:
       queue:
