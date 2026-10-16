@@ -1,7 +1,9 @@
 queue_rules:
   - name: dague-lab-queue
     queue_conditions:
-      - label = dague-queue-only
+      - or:
+          - label = dague-queue-only
+          - base = dague-victim
     merge_conditions:
       - label != dague-never-merge-xyz
 
