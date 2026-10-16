@@ -1,12 +1,18 @@
 queue_rules:
-  - name: vd5-queue-7c41ae
+  - name: dague-lab-queue
     merge_conditions:
-      - check-success=vd5-gate-7c41ae
+      - check-success=dague-required-check
 
 pull_request_rules:
-  - name: vd5-automerge-7c41ae
+  - name: dague-lab-comment
+    conditions:
+      - base = main
+    actions:
+      comment:
+        message: "dague-lab: rule matched"
+  - name: dague-lab-automerge
     conditions:
       - base = main
     actions:
       queue:
-        name: vd5-queue-7c41ae
+        name: dague-lab-queue
