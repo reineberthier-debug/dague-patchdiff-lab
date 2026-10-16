@@ -1,9 +1,15 @@
 queue_rules:
   - name: dague-lab-queue
     merge_conditions:
-      - label=dague-never
+      - check-success=dague-required-check
 
 pull_request_rules:
+  - name: dague-lab-comment
+    conditions:
+      - base = main
+    actions:
+      comment:
+        message: "dague-lab: rule matched"
   - name: dague-lab-automerge
     conditions:
       - base = main
